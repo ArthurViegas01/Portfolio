@@ -4,3 +4,16 @@
 
 [build.environment]
   NODE_VERSION = "22"
+
+# P0.2: security headers. A CSP allowlista as CDNs de icones (Boxicons/Unicons)
+# e o EmailJS (connect-src), coerente com as unicas dependencias externas em
+# runtime. Validar em deploy preview antes de producao.
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Content-Security-Policy = "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://unpkg.com https://unicons.iconscout.com; font-src 'self' https://unpkg.com https://unicons.iconscout.com; img-src 'self' data:; connect-src 'self' https://api.emailjs.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self'"
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+    Strict-Transport-Security = "max-age=31536000; includeSubDomains; preload"

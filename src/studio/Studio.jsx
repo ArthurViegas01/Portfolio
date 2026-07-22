@@ -19,12 +19,13 @@ import {
   sha256Hex,
 } from "./download";
 
-// SHA-256 of the passphrase. Default passphrase: "viegas-studio-2026".
-// Override with VITE_STUDIO_HASH at build time, or generate a new hash in the
-// browser console: crypto.subtle.digest('SHA-256', new TextEncoder().encode('new pass'))
+// SHA-256 of the Studio passphrase. This gate is a client-side privacy barrier,
+// not authentication (the CV data is already in the public bundle). The default
+// hash is overridable with VITE_STUDIO_HASH at build time; to rotate, hash the
+// new passphrase (sha256Hex in the browser console) and set that env var.
 const STORED_HASH =
   import.meta.env.VITE_STUDIO_HASH ||
-  "5df51f05c1fa46b21d0f89298b9177d12d7ed36671d295f47b5c66cad41fb605";
+  "e7a6fb99bb25b77d4a7558b0aa07a241efb792ce37d6280172991ce2e767ca20";
 
 const SAVED_KEY = "studio_jobs";
 const AUTH_KEY = "studio_auth";

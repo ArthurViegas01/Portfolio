@@ -5,6 +5,7 @@ import { useLanguage } from "../../context/LanguageContext";
 
 const Contact = () => {
   const form = useRef();
+  const mountedAt = useRef(Date.now());
   const [sending, setSending] = useState(false);
   const [status, setStatus] = useState(null); // 'success' | 'error' | null
   const [errors, setErrors] = useState({});
@@ -37,6 +38,18 @@ const Contact = () => {
       setErrors(validationErrors);
       return;
     }
+
+    // P0.1: honeypot + tempo minimo. Bots preenchem o campo oculto "website" e
+    // submetem rapido demais. Descartamos silenciosamente (aparenta sucesso)
+    // sem chamar o EmailJS, preservando a quota do plano gratuito.
+    const elapsed = Date.now() - mountedAt.current;
+    if (new FormData(form.current).get("website") || elapsed < 3000) {
+      setErrors({});
+      form.current.reset();
+      setStatus("success");
+      return;
+    }
+
     setErrors({});
     setSending(true);
 
@@ -116,6 +129,15 @@ const Contact = () => {
           <h3 className="contactTitle">{t.contact.formTitle}</h3>
 
           <form ref={form} onSubmit={sendEmail} className="contactForm" noValidate>
+            {/* P0.1: honeypot invisivel para humanos; iscas para bots. */}
+            <input
+              type="text"
+              name="website"
+              tabIndex="-1"
+              autoComplete="off"
+              aria-hidden="true"
+              style={{ position: "absolute", left: "-9999px", width: "1px", height: "1px", opacity: 0 }}
+            />
             <div className="contactForm-div">
               <label className="contactForm-tag">{t.contact.name}</label>
               <input
