@@ -32,7 +32,7 @@ import ScreenDataglass      from "../../assets/work6.jpg";
 import ScreenTransportadora from "../../assets/TransportadoraDely.png";
 import ScreenJogoGeneral    from "../../assets/work4.jpg";
 import ScreenSynth          from "../../assets/work7.jpg";
-import ScreenDevscope       from "../../assets/work10.jpg";
+import ScreenDevscope       from "../../assets/devscope-app.png";
 
 export const projectsData = [
   // ── Projeto em destaque ───────────────────────────────────────────────────────
@@ -124,8 +124,8 @@ export const projectsData = [
     description_en:
       "MCP (Model Context Protocol) server that exposes GitHub profile analysis tools to AI agents. Claude and other LLM clients can analyze repositories, map skills to job postings, and generate engineering reports in natural language — all via the native tool protocol. Story: I built an AI to analyze developer portfolios, starting with my own.",
     technologies: ["Python", "FastMCP", "GitHub API", "LangChain", "Docker", "Railway", "Terraform"],
-    link: "https://github.com/ArthurViegas01/Reporeaver",
-    github: "https://github.com/ArthurViegas01/Reporeaver",
+    link: "https://devscopeai.netlify.app",
+    github: "https://github.com/ArthurViegas01/Devscope",
   },
   {
     id: 5,
