@@ -5,13 +5,14 @@
 [build.environment]
   NODE_VERSION = "22"
 
-# P0.2: security headers. A CSP allowlista as CDNs de icones (Boxicons/Unicons)
-# e o EmailJS (connect-src), coerente com as unicas dependencias externas em
-# runtime. Validar em deploy preview antes de producao.
+# P0.2: security headers. A CSP allowlista as CDNs de icones (Boxicons/Unicons),
+# as fontes (Google Fonts via @import no App.css e Typekit, usado pelo line.css
+# da Unicons) e o EmailJS (connect-src), coerente com as unicas dependencias
+# externas em runtime. Validar em deploy preview antes de producao.
 [[headers]]
   for = "/*"
   [headers.values]
-    Content-Security-Policy = "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://unpkg.com https://unicons.iconscout.com; font-src 'self' https://unpkg.com https://unicons.iconscout.com; img-src 'self' data:; connect-src 'self' https://api.emailjs.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self'"
+    Content-Security-Policy = "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://unpkg.com https://unicons.iconscout.com https://fonts.googleapis.com; font-src 'self' data: https://unpkg.com https://unicons.iconscout.com https://use.typekit.net https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://api.emailjs.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self'"
     X-Frame-Options = "DENY"
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
