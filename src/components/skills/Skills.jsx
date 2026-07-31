@@ -9,12 +9,24 @@ import {
   TOTAL_PROJECTS,
 } from "./skillsData";
 
+// How many chips a card shows before the "show more" toggle. Kept low so the
+// masonry stays compact; tracing a project overrides it (all chips revealed).
+const COLLAPSED_COUNT = 6;
+
 const Skills = () => {
   const { t } = useLanguage();
   const s = t.skills;
 
   const [activeCategory, setActiveCategory] = useState("all");
   const [activeProject, setActiveProject] = useState(null);
+  const [expandedCards, setExpandedCards] = useState(() => new Set());
+
+  const toggleCard = (id) =>
+    setExpandedCards((prev) => {
+      const next = new Set(prev);
+      next.has(id) ? next.delete(id) : next.add(id);
+      return next;
+    });
 
   const visibleCategories = useMemo(
     () =>
@@ -120,6 +132,13 @@ const Skills = () => {
             const matchesProject =
               !activeProject || cat.skills.some((sk) => sk.proof.includes(activeProject));
 
+            // Tracing a project reveals every chip so no match stays hidden;
+            // otherwise the card honours its per-card expand toggle.
+            const expanded = !!activeProject || expandedCards.has(cat.id);
+            const overflow = cat.skills.length - COLLAPSED_COUNT;
+            const shownSkills =
+              expanded ? cat.skills : cat.skills.slice(0, COLLAPSED_COUNT);
+
             return (
               <article
                 key={cat.id}
@@ -135,7 +154,7 @@ const Skills = () => {
                 </header>
 
                 <ul className="skillsChips">
-                  {cat.skills.map((skill) => {
+                  {shownSkills.map((skill) => {
                     const matched =
                       activeProject && skill.proof.includes(activeProject);
                     const dimmed = activeProject && !matched;
@@ -166,6 +185,30 @@ const Skills = () => {
                     );
                   })}
                 </ul>
+
+                {/* Per-card expand toggle — hidden while tracing a project,
+                    since that mode already reveals every chip. */}
+                {!activeProject && overflow > 0 && (
+                  <button
+                    type="button"
+                    className="skillsCard-toggle"
+                    aria-expanded={expanded}
+                    onClick={() => toggleCard(cat.id)}
+                  >
+                    {expanded ? (
+                      <>
+                        <i className="uil uil-angle-up" aria-hidden="true"></i>
+                        {s.showLess}
+                      </>
+                    ) : (
+                      <>
+                        <i className="uil uil-angle-down" aria-hidden="true"></i>
+                        {s.showMore}
+                        <span className="skillsCard-toggleCount">+{overflow}</span>
+                      </>
+                    )}
+                  </button>
+                )}
               </article>
             );
           })}
