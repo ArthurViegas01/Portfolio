@@ -13,25 +13,34 @@
 
     <!--  SEO -->
     <meta name="description" content="Arthur Viegas, Full Stack and AI Engineer specialized in RAG pipelines, FastAPI, pgvector, LangChain, and cloud-native backends. Open to remote opportunities.">
-    <meta name="keywords" content="Arthur Viegas, Full Stack Engineer, AI Engineer, RAG, Retrieval-Augmented Generation, FastAPI, pgvector, LangChain, Celery, Django, React, Vue, Docker, AWS, Python, Software Engineer, Remote">
+    <meta name="keywords" content="Arthur Viegas, Full Stack Engineer, AI Engineer, RAG, Retrieval-Augmented Generation, FastAPI, pgvector, LangChain, LangGraph, MCP, Celery, Django, React, Vue, Go, Docker, AWS, Python, Software Engineer, Remote">
     <meta name="author" content="Arthur Viegas">
     <meta name="robots" content="index, follow">
 
     <!-- Open Graph -->
     <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Arthur Viegas">
     <meta property="og:title" content="Arthur Viegas · Full Stack & AI Engineer">
     <meta property="og:description" content="Software Engineer specialized in AI-powered backends: end-to-end RAG pipelines, semantic search with pgvector, async processing with Celery, and full-stack development with FastAPI and React.">
-    <meta property="og:url" content="https://arthurviegas.netlify.app">
+    <meta property="og:url" content="https://arthurviegasdev.netlify.app">
     <meta property="og:locale" content="en_US">
     <meta property="og:locale:alternate" content="pt_BR">
+    <meta property="og:image" content="https://arthurviegasdev.netlify.app/og-image.png">
+    <meta property="og:image:secure_url" content="https://arthurviegasdev.netlify.app/og-image.png">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Arthur Viegas — Full-Stack & AI Engineer. RAG, LangGraph, MCP, pgvector, FastAPI, Go, AWS, React.">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Arthur Viegas · Full Stack & AI Engineer">
     <meta name="twitter:description" content="Software Engineer specialized in AI-powered backends: RAG pipelines, pgvector, FastAPI, Celery, Django, React, Docker, and AWS.">
+    <meta name="twitter:image" content="https://arthurviegasdev.netlify.app/og-image.png">
+    <meta name="twitter:image:alt" content="Arthur Viegas — Full-Stack & AI Engineer.">
 
     <!-- Canonical -->
-    <link rel="canonical" href="https://arthurviegas.netlify.app">
+    <link rel="canonical" href="https://arthurviegasdev.netlify.app">
 
     <!-- Boxicons -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
@@ -39,9 +48,49 @@
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
 
     <title>Arthur Viegas · Full Stack & AI Engineer</title>
+
+    <!-- Structured data. Browsers do not execute application/ld+json, but the CSP
+         in netlify.toml carries its sha256 so no engine has to make that call.
+         Ao editar este bloco, regere o hash e atualize o script-src:
+         python -c "import hashlib,base64,re;raw=open('index.html','rb').read().replace(b'\r\n',b'\n');b=re.search(rb'ld\+json\">(.*?)</script>',raw,re.S).group(1);print('sha256-'+base64.b64encode(hashlib.sha256(b).digest()).decode())" -->
+    <script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Person","name":"Arthur Pereira Viegas","alternateName":"Arthur Viegas","url":"https://arthurviegasdev.netlify.app","email":"mailto:arthurpviegas@gmail.com","jobTitle":"Full-Stack & AI Engineer","description":"Software Engineer building production AI systems: end-to-end RAG pipelines, multi-agent orchestration with LangGraph, MCP servers and cloud-native backends.","address":{"@type":"PostalAddress","addressLocality":"Porto Alegre","addressRegion":"RS","addressCountry":"BR"},"alumniOf":{"@type":"CollegeOrUniversity","name":"Pontifícia Universidade Católica do Rio Grande do Sul (PUCRS)"},"sameAs":["https://github.com/ArthurViegas01","https://www.linkedin.com/in/arthur-viegas-dev"],"knowsAbout":["Retrieval-Augmented Generation","LangGraph","Model Context Protocol","pgvector","FastAPI","Django","Go","React","Next.js","AWS","Docker","Terraform","PostgreSQL","Celery"],"knowsLanguage":[{"@type":"Language","name":"Portuguese"},{"@type":"Language","name":"English"}],"seeks":{"@type":"Demand","name":"Remote software engineering roles"}}
+    </script>
   </head>
   <body>
     <div id="root"></div>
+
+    <!-- Crawler / no-JS fallback. This site is a client-rendered SPA, so parsers
+         that do not execute JavaScript (LinkedIn, WhatsApp, most ATS) would
+         otherwise see an empty shell. Keep this block in sync with the hero copy. -->
+    <noscript>
+      <h1>Arthur Viegas — Full-Stack &amp; AI Engineer</h1>
+      <p>
+        Software Engineer based in Porto Alegre, Brazil, building production AI systems:
+        end-to-end RAG pipelines, multi-agent orchestration with LangGraph, MCP servers and
+        cloud-native backends. Open to remote opportunities.
+      </p>
+      <h2>Core stack</h2>
+      <p>
+        Python · TypeScript · Go · FastAPI · Django · LangChain · LangGraph · MCP · pgvector ·
+        Celery · PostgreSQL · Redis · React · Next.js · Vue · Docker · Terraform · AWS
+      </p>
+      <h2>Selected projects</h2>
+      <ul>
+        <li><strong>Encaixe</strong> — multi-tenant WhatsApp AI SaaS: 6-node LangGraph agent, Voyage AI + pgvector semantic search, PostgreSQL row-level security, FastAPI, Next.js.</li>
+        <li><strong>Context</strong> — RAG pipeline over private documents: async Celery ingestion, hybrid retrieval (pgvector cosine + Postgres full-text) fused with Reciprocal Rank Fusion.</li>
+        <li><strong>Mirante</strong> — modular monolith in Go with SvelteKit, SSE real-time monitoring, OpenTelemetry and eight written architecture decision records.</li>
+        <li><strong>Devscope</strong> — Model Context Protocol server exposing GitHub profile-analysis tools to LLM clients over Streamable HTTP.</li>
+        <li><strong>PowerAtlas</strong> — interactive tactical HUD mapping power and influence across Brazil over MapLibre + deck.gl, with a read-only FastAPI backend on PostgreSQL + PostGIS and a Celery ingestion pipeline.</li>
+        <li><strong>Synth</strong> — real-time AI component generator streaming TSX into Monaco and compiling it in a sandboxed iframe.</li>
+      </ul>
+      <p>
+        Contact: <a href="mailto:arthurpviegas@gmail.com">arthurpviegas@gmail.com</a> ·
+        <a href="https://github.com/ArthurViegas01">GitHub</a> ·
+        <a href="https://www.linkedin.com/in/arthur-viegas-dev">LinkedIn</a>
+      </p>
+    </noscript>
+
     <script type="module" src="/src/index.jsx"></script>
   </body>
 </html>
