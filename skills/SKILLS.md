@@ -1,7 +1,7 @@
 # Arthur Pereira Viegas — Inventário Completo de Skills
 
 > **Full-Stack & AI Engineer** · Porto Alegre, RS, Brasil · Aberto a remoto / Irlanda
-> arthurviegas@gmail.com · [github.com/ArthurViegas01](https://github.com/ArthurViegas01) · [linkedin.com/in/arthurpviegas](https://linkedin.com/in/arthurpviegas) · [arthurviegas.netlify.app](https://arthurviegas.netlify.app)
+> arthurpviegas@gmail.com · [github.com/ArthurViegas01](https://github.com/ArthurViegas01) · [linkedin.com/in/arthur-viegas-dev](https://linkedin.com/in/arthur-viegas-dev) · [arthurviegasdev.netlify.app](https://arthurviegasdev.netlify.app)
 
 Este documento foi gerado a partir da **leitura da documentação e verificação do código-fonte real** dos meus
 projetos. Cada skill marcada com ✓ foi confirmada com evidência de arquivo (não apenas mencionada em README).

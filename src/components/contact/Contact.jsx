@@ -113,7 +113,7 @@ const Contact = () => {
               <h3 className="contactCard-title">LinkedIn</h3>
               <span className="contactCard-data">arthur-viegas</span>
               <a
-                href="https://www.linkedin.com/in/arthur-viegas"
+                href="https://www.linkedin.com/in/arthur-viegas-dev"
                 target="_blank"
                 rel="noreferrer"
                 className="contactButton"

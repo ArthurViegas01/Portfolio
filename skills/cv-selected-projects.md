@@ -66,7 +66,7 @@ preview, revision history, and Zustand stores with localStorage persistence. Dep
 Bilingual (PT/EN) portfolio whose centerpiece is a **custom architecture-diagram engine**: case studies are written as
 **declarative specs** (nodes, edges, lanes — no coordinates) that a layout engine turns into accessible SVG with
 automatic column alignment and edge routing, fully internationalized. Includes a validated EmailJS contact form and a
-Swiper testimonials carousel, and a persisted dark/light theme toggle. Deployed on Netlify (Node 22). [arthurviegas.netlify.app](https://arthurviegas.netlify.app)
+Swiper testimonials carousel, and a persisted dark/light theme toggle. Deployed on Netlify (Node 22). [arthurviegasdev.netlify.app](https://arthurviegasdev.netlify.app)
 
 ---
 
