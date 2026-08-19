@@ -1,4 +1,4 @@
-import ImgDonut from "../../assets/donutblender.png";
+import ImgDonut from "../../assets/donutblender.jpg";
 
 // Thumbs com variantes dark / light  [(1) = light mode]
 import ImgEncaixeDark  from "../../assets/Encaixe.png";
@@ -29,7 +29,7 @@ import ImgMiranteLight from "../../assets/Mirante (1).png";
 import ScreenEncaixe        from "../../assets/encaixe.jpg";
 import ScreenContextRag     from "../../assets/work3.jpg";
 import ScreenDataglass      from "../../assets/work6.jpg";
-import ScreenTransportadora from "../../assets/TransportadoraDely.png";
+import ScreenTransportadora from "../../assets/TransportadoraDely.jpg";
 import ScreenJogoGeneral    from "../../assets/work4.jpg";
 import ScreenSynth          from "../../assets/work7.jpg";
 import ScreenDevscope       from "../../assets/devscope-app.png";

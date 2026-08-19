@@ -1,7 +1,7 @@
-import Image1 from "../../assets/brenno.png";
-import Image2 from "../../assets/danillo.png";
+import Image1 from "../../assets/brenno.jpg";
+import Image2 from "../../assets/danillo.jpg";
 import Image3 from "../../assets/jordan.png";
-import Image4 from "../../assets/kevin.png";
+import Image4 from "../../assets/kevin.jpg";
 
 export const Data = [
   {
