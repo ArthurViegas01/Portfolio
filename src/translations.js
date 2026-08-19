@@ -41,6 +41,8 @@ export const translations = {
       noMatch: "Nenhuma skill de {project} nesta categoria.",
       traceLive: "{count} skills construidas com {project}",
       clear: "Limpar",
+      showMore: "Ver mais",
+      showLess: "Ver menos",
       spoken: "Idiomas: Portugues (nativo) · Ingles (avancado / profissional)",
       stats: {
         skills: "skills verificadas",
@@ -762,6 +764,8 @@ export const translations = {
       noMatch: "No {project} skills in this category.",
       traceLive: "{count} skills built with {project}",
       clear: "Clear",
+      showMore: "Show more",
+      showLess: "Show less",
       spoken: "Languages: Portuguese (native) · English (advanced / professional)",
       stats: {
         skills: "verified skills",

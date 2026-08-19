@@ -25,6 +25,10 @@ import ImgDevscLight    from "../../assets/Devscope (1).png";
 import ImgMiranteDark  from "../../assets/Mirante.png";
 import ImgMiranteLight from "../../assets/Mirante (1).png";
 
+// TODO: substituir por exports reais do Claude Design (placeholders por enquanto)
+import ImgPowerAtlasDark  from "../../assets/PowerAtlas.png";
+import ImgPowerAtlasLight from "../../assets/PowerAtlas (1).png";
+
 // Screenshots reais dos apps (exibidas no hover dos cards)
 import ScreenEncaixe        from "../../assets/encaixe.jpg";
 import ScreenContextRag     from "../../assets/work3.jpg";
@@ -49,6 +53,20 @@ export const projectsData = [
     technologies: ["Go", "SvelteKit", "Svelte 5", "libSQL / Turso", "SSE", "Groq", "Railway"],
     link: "https://mirante-web-production.up.railway.app",
     github: null,
+  },
+  {
+    id: 9,
+    image: ImgPowerAtlasDark,
+    imageLight: ImgPowerAtlasLight,
+    title: "PowerAtlas",
+    category: ["fullstack", "web"],
+    description_pt:
+      "HUD tático interativo que mapeia poder e influência no Brasil (nacional, 27 UFs e 5.570 municípios) sobre um mapa MapLibre + deck.gl: coropleto por estado, colunas 3D nas capitais, arcos de fluxo fiscal e heatmap ambiente, com coreografia GSAP respeitando prefers-reduced-motion. Front em Vue 3 + Pinia; backend FastAPI read-only sobre PostgreSQL + PostGIS (asyncpg cru) e pipeline de ingestão em Celery/Redis. Dados factuais de IBGE, Receita Federal e Tesouro Nacional; stack completa em Docker Compose.",
+    description_en:
+      "Interactive tactical HUD mapping power and influence across Brazil (national, 27 states, 5,570 municipalities) over a MapLibre + deck.gl map: state choropleth, 3D capital columns, fiscal-flow arcs and an ambient heatmap, with GSAP choreography gated behind prefers-reduced-motion. Vue 3 + Pinia front end; read-only FastAPI backend over PostgreSQL + PostGIS (raw asyncpg) with a Celery/Redis ingestion pipeline. Factual data from IBGE, Receita Federal and Tesouro Nacional; full stack via Docker Compose.",
+    technologies: ["Vue 3", "deck.gl", "MapLibre GL", "FastAPI", "PostGIS", "Celery", "Docker"],
+    link: "https://github.com/ArthurViegas01/PowerAtlas",
+    github: "https://github.com/ArthurViegas01/PowerAtlas",
   },
 
   // ── Página 1 ────────────────────────────────────────────────────────────────
