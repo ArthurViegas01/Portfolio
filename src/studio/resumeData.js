@@ -20,15 +20,15 @@ export const PROFILE = {
     en: "Porto Alegre, Brazil",
   },
   openTo: {
-    pt: "Aberto a oportunidades remotas / Irlanda",
-    en: "Open to remote opportunities / Ireland",
+    pt: "Remoto (UTC-3) · sobreposicao com EUA e Europa · aberto a contrato PJ",
+    en: "Remote (UTC-3) · overlaps US & EU business hours · open to contractor roles",
   },
   email: "arthurpviegas@gmail.com",
   phone: "+55 51 99613-4122",
   links: {
-    site: "arthurviegas.netlify.app",
+    site: "arthurviegasdev.netlify.app",
     github: "github.com/ArthurViegas01",
-    linkedin: "linkedin.com/in/arthur-viegas",
+    linkedin: "linkedin.com/in/arthur-viegas-dev",
   },
 };
 
@@ -78,6 +78,26 @@ export const EXPERIENCE = [
       ],
     },
   },
+  {
+    company: "AGES — Agência Experimental de Engenharia de Software (PUCRS)",
+    role: {
+      pt: "Desenvolvedor de Software · Arquitetura · Gestão de Projeto",
+      en: "Software Developer · Architecture · Project Management",
+    },
+    period: "2021 – 2025",
+    location: { pt: "Porto Alegre, BR", en: "Porto Alegre, BR" },
+    stack: ["Java", "Spring Boot", "React", "PostgreSQL", "Docker", "Git Flow", "Scrum"],
+    bullets: {
+      pt: [
+        "Entreguei software para clientes externos reais que contratam a agência de engenharia de software da PUCRS, ao longo de quatro ciclos anuais consecutivos (AGES I–IV) — um time de desenvolvimento por ano, com entregas versionadas e demos para o cliente.",
+        "Assumi papéis distintos a cada ciclo — desenvolvimento, arquitetura técnica e gestão de projeto — em times multifuncionais operando em cadência de sprints com code review obrigatório.",
+      ],
+      en: [
+        "Delivered software for real external clients contracting PUCRS's software engineering agency across four consecutive year-long cycles (AGES I–IV) — one delivery team per year, with versioned releases and client-facing demos.",
+        "Held distinct roles across cycles — hands-on development, technical architecture, and project management — in cross-functional teams running sprint cadence with mandatory code review.",
+      ],
+    },
+  },
 ];
 
 export const EDUCATION = [
@@ -110,6 +130,17 @@ export const SPOKEN = {
 // Recruiter-facing project entries. `keywords` feed the tailoring
 // relevance ranking; `stack` is what prints on the CV.
 export const PROJECTS = [
+  {
+    id: "mirante",
+    name: "Mirante — Personal Command Center (Go modular monolith)",
+    category: "backend",
+    stack: ["Go", "SvelteKit", "SQLite / libSQL (Turso)", "SSE", "OpenTelemetry", "goose", "Docker", "Railway"],
+    link: "github.com/ArthurViegas01/mirante",
+    blurb: {
+      pt: "Monólito modular em Go (domínios que não se importam entre si; cross-domain por ports e IDs tipados) com push em tempo real por SSE, migrações embarcadas via go:embed, isolamento multiusuário por user_id e observabilidade OTLP. Decisões registradas em oito ADRs — incluindo dois domínios de confiança para fetch (anti-SSRF com IP pinning dentro do DialContext) e OAuth do GitHub com PKCE e token cifrado em repouso (AES-256-GCM, chave derivada por HKDF).",
+      en: "Modular monolith in Go (domain packages never import each other; cross-domain through ports and typed IDs) with SSE real-time push, migrations embedded via go:embed, per-user isolation and OTLP observability. Decisions recorded in eight ADRs — including two trust domains for outbound fetch (anti-SSRF with IP pinning inside DialContext) and GitHub OAuth with PKCE and tokens encrypted at rest (AES-256-GCM, key derived via HKDF).",
+    },
+  },
   {
     id: "encaixe",
     name: "Encaixe — Multi-Tenant WhatsApp AI SaaS",
@@ -152,6 +183,17 @@ export const PROJECTS = [
     blurb: {
       pt: "Streaming de TSX gerado por LLM token-a-token em um editor Monaco, compilado ao vivo no navegador com Babel Standalone dentro de um iframe sandbox endurecido. Rota Next.js única abstrai quatro provedores de LLM; inclui validação client-side e persistência com Zustand.",
       en: "Streams LLM-generated TSX token-by-token into a Monaco editor, compiled live in the browser with Babel Standalone inside a hardened iframe sandbox. A single Next.js route abstracts four LLM providers; includes client-side validation and Zustand persistence.",
+    },
+  },
+  {
+    id: "poweratlas",
+    name: "PowerAtlas — Interactive Power & Influence Atlas of Brazil",
+    category: "fullstack",
+    stack: ["Vue 3", "Pinia", "deck.gl", "MapLibre GL", "FastAPI", "PostgreSQL + PostGIS", "asyncpg", "Celery", "Docker"],
+    link: "github.com/ArthurViegas01/PowerAtlas",
+    blurb: {
+      pt: "HUD tático interativo que mapeia poder e influência no Brasil em três escalas (nacional, 27 UFs, 5.570 municípios) sobre MapLibre + deck.gl: coropleto por estado, colunas 3D nas capitais, arcos de fluxo fiscal e heatmap ambiente, com coreografia GSAP atrás de prefers-reduced-motion. Backend FastAPI read-only sobre PostgreSQL + PostGIS com asyncpg cru e pipeline de ingestão em Celery/Redis; dados factuais de IBGE, Receita Federal e Tesouro Nacional.",
+      en: "Interactive tactical HUD mapping power and influence across Brazil at three scales (national, 27 states, 5,570 municipalities) over MapLibre + deck.gl: state choropleth, 3D capital columns, fiscal-flow arcs and an ambient heatmap, with GSAP choreography gated behind prefers-reduced-motion. Read-only FastAPI backend over PostgreSQL + PostGIS using raw asyncpg, with a Celery/Redis ingestion pipeline; factual data from IBGE, Receita Federal and Tesouro Nacional.",
     },
   },
   {
