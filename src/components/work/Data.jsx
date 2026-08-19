@@ -25,7 +25,6 @@ import ImgDevscLight    from "../../assets/Devscope (1).png";
 import ImgMiranteDark  from "../../assets/Mirante.png";
 import ImgMiranteLight from "../../assets/Mirante (1).png";
 
-// TODO: substituir por exports reais do Claude Design (placeholders por enquanto)
 import ImgPowerAtlasDark  from "../../assets/PowerAtlas.png";
 import ImgPowerAtlasLight from "../../assets/PowerAtlas (1).png";
 
