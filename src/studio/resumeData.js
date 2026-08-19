@@ -1,5 +1,5 @@
 /* ============================================================
-   MASTER RESUME — single source of truth for CV generation
+   MASTER RESUME - single source of truth for CV generation
    ------------------------------------------------------------
    Bilingual (pt/en). This is the always-up-to-date data the
    Studio uses to generate tailored, ATS-friendly CVs. Skills
@@ -41,7 +41,7 @@ export const EXPERIENCE = [
   {
     company: "Dataglass",
     role: { pt: "Desenvolvedor Full-Stack (Estágio)", en: "Full-Stack Developer (Intern)" },
-    period: "2023 – 2024",
+    period: "2023 - 2024",
     location: { pt: "Remoto", en: "Remote" },
     stack: ["Django", "DRF", "React", "Celery", "Redis", "Docker", "AWS", "Vertex AI", "Tableau"],
     bullets: {
@@ -64,37 +64,37 @@ export const EXPERIENCE = [
   {
     company: "Dell / PUCRS",
     role: { pt: "Analista de Dados (Estágio)", en: "Data Analyst (Intern)" },
-    period: "2021 – 2022",
+    period: "2021 - 2022",
     location: { pt: "Porto Alegre, BR", en: "Porto Alegre, BR" },
     stack: ["Tableau", "SQL", "Python", "Data Pipelines"],
     bullets: {
       pt: [
-        "Analisei dados educacionais e construí dashboards em Tableau para apoiar decisões pedagógicas em um programa conjunto Dell–PUCRS.",
+        "Analisei dados educacionais e construí dashboards em Tableau para apoiar decisões pedagógicas em um programa conjunto Dell/PUCRS.",
         "Automatizei relatórios e pipelines de dados, reduzindo trabalho manual recorrente.",
       ],
       en: [
-        "Analyzed educational data and built Tableau dashboards to support pedagogical decisions in a joint Dell–PUCRS program.",
+        "Analyzed educational data and built Tableau dashboards to support pedagogical decisions in a joint Dell/PUCRS program.",
         "Automated reporting and data pipelines, reducing recurring manual work.",
       ],
     },
   },
   {
-    company: "AGES — Agência Experimental de Engenharia de Software (PUCRS)",
+    company: "AGES, Agência Experimental de Engenharia de Software (PUCRS)",
     role: {
       pt: "Desenvolvedor de Software · Arquitetura · Gestão de Projeto",
       en: "Software Developer · Architecture · Project Management",
     },
-    period: "2021 – 2025",
+    period: "2021 - 2025",
     location: { pt: "Porto Alegre, BR", en: "Porto Alegre, BR" },
     stack: ["Java", "Spring Boot", "React", "PostgreSQL", "Docker", "Git Flow", "Scrum"],
     bullets: {
       pt: [
-        "Entreguei software para clientes externos reais que contratam a agência de engenharia de software da PUCRS, ao longo de quatro ciclos anuais consecutivos (AGES I–IV) — um time de desenvolvimento por ano, com entregas versionadas e demos para o cliente.",
-        "Assumi papéis distintos a cada ciclo — desenvolvimento, arquitetura técnica e gestão de projeto — em times multifuncionais operando em cadência de sprints com code review obrigatório.",
+        "Entreguei software para clientes externos reais que contratam a agência de engenharia de software da PUCRS, ao longo de quatro ciclos anuais consecutivos (AGES I a IV), um time de desenvolvimento por ano, com entregas versionadas e demos para o cliente.",
+        "Assumi papéis distintos a cada ciclo: desenvolvimento, arquitetura técnica e gestão de projeto, em times multifuncionais operando em cadência de sprints com code review obrigatório.",
       ],
       en: [
-        "Delivered software for real external clients contracting PUCRS's software engineering agency across four consecutive year-long cycles (AGES I–IV) — one delivery team per year, with versioned releases and client-facing demos.",
-        "Held distinct roles across cycles — hands-on development, technical architecture, and project management — in cross-functional teams running sprint cadence with mandatory code review.",
+        "Delivered software for real external clients contracting PUCRS's software engineering agency across four consecutive year-long cycles (AGES I to IV), one delivery team per year, with versioned releases and client-facing demos.",
+        "Held distinct roles across cycles: hands-on development, technical architecture and project management, in cross-functional teams running sprint cadence with mandatory code review.",
       ],
     },
   },
@@ -103,14 +103,14 @@ export const EXPERIENCE = [
 export const EDUCATION = [
   {
     school: {
-      pt: "PUCRS — Pontifícia Universidade Católica do Rio Grande do Sul",
-      en: "PUCRS — Pontifical Catholic University of Rio Grande do Sul",
+      pt: "PUCRS, Pontifícia Universidade Católica do Rio Grande do Sul",
+      en: "PUCRS, Pontifical Catholic University of Rio Grande do Sul",
     },
     degree: {
       pt: "Bacharelado em Engenharia de Software",
       en: "B.Sc. in Software Engineering",
     },
-    period: "2021 – 2025",
+    period: "2021 - 2025",
   },
   {
     school: {
@@ -132,18 +132,18 @@ export const SPOKEN = {
 export const PROJECTS = [
   {
     id: "mirante",
-    name: "Mirante — Personal Command Center (Go modular monolith)",
+    name: "Mirante · Personal Command Center (Go modular monolith)",
     category: "backend",
     stack: ["Go", "SvelteKit", "SQLite / libSQL (Turso)", "SSE", "OpenTelemetry", "goose", "Docker", "Railway"],
     link: "github.com/ArthurViegas01/mirante",
     blurb: {
-      pt: "Monólito modular em Go (domínios que não se importam entre si; cross-domain por ports e IDs tipados) com push em tempo real por SSE, migrações embarcadas via go:embed, isolamento multiusuário por user_id e observabilidade OTLP. Decisões registradas em oito ADRs — incluindo dois domínios de confiança para fetch (anti-SSRF com IP pinning dentro do DialContext) e OAuth do GitHub com PKCE e token cifrado em repouso (AES-256-GCM, chave derivada por HKDF).",
-      en: "Modular monolith in Go (domain packages never import each other; cross-domain through ports and typed IDs) with SSE real-time push, migrations embedded via go:embed, per-user isolation and OTLP observability. Decisions recorded in eight ADRs — including two trust domains for outbound fetch (anti-SSRF with IP pinning inside DialContext) and GitHub OAuth with PKCE and tokens encrypted at rest (AES-256-GCM, key derived via HKDF).",
+      pt: "Monólito modular em Go (domínios que não se importam entre si; cross-domain por ports e IDs tipados) com push em tempo real por SSE, migrações embarcadas via go:embed, isolamento multiusuário por user_id e observabilidade OTLP. Decisões registradas em oito ADRs, incluindo dois domínios de confiança para fetch (anti-SSRF com IP pinning dentro do DialContext) e OAuth do GitHub com PKCE e token cifrado em repouso (AES-256-GCM, chave derivada por HKDF).",
+      en: "Modular monolith in Go (domain packages never import each other; cross-domain through ports and typed IDs) with SSE real-time push, migrations embedded via go:embed, per-user isolation and OTLP observability. Decisions recorded in eight ADRs, including two trust domains for outbound fetch (anti-SSRF with IP pinning inside DialContext) and GitHub OAuth with PKCE and tokens encrypted at rest (AES-256-GCM, key derived via HKDF).",
     },
   },
   {
     id: "encaixe",
-    name: "Encaixe — Multi-Tenant WhatsApp AI SaaS",
+    name: "Encaixe · Multi-Tenant WhatsApp AI SaaS",
     category: "ai",
     stack: ["FastAPI", "LangGraph", "Claude Haiku", "Voyage AI", "pgvector", "Celery", "Redis", "Next.js 14", "Supabase", "Terraform"],
     link: "github.com/ArthurViegas01/ZapAgent",
@@ -154,7 +154,7 @@ export const PROJECTS = [
   },
   {
     id: "context",
-    name: "Context — RAG Pipeline over Private Documents",
+    name: "Context · RAG Pipeline over Private Documents",
     category: "ai",
     stack: ["FastAPI", "Celery", "pgvector", "fastembed / ONNX", "LangChain", "React", "Docker", "Nginx"],
     link: "github.com/ArthurViegas01/RAG",
@@ -165,7 +165,7 @@ export const PROJECTS = [
   },
   {
     id: "devscope",
-    name: "Devscope — MCP Server for AI Agents",
+    name: "Devscope · MCP Server for AI Agents",
     category: "ai",
     stack: ["Python", "FastMCP", "GitHub API", "Groq / Llama 3.1-70b", "LangChain", "Redis", "Docker", "Terraform"],
     link: "github.com/ArthurViegas01/Reporeaver",
@@ -176,7 +176,7 @@ export const PROJECTS = [
   },
   {
     id: "synth",
-    name: "Synth — Real-Time AI Component Generator",
+    name: "Synth · Real-Time AI Component Generator",
     category: "ai",
     stack: ["Next.js 15", "Groq API", "Monaco Editor", "Babel Standalone", "Zustand", "Tailwind CSS"],
     link: "github.com/ArthurViegas01/componentgenerator",
@@ -187,7 +187,7 @@ export const PROJECTS = [
   },
   {
     id: "poweratlas",
-    name: "PowerAtlas — Interactive Power & Influence Atlas of Brazil",
+    name: "PowerAtlas · Interactive Power & Influence Atlas of Brazil",
     category: "fullstack",
     stack: ["Vue 3", "Pinia", "deck.gl", "MapLibre GL", "FastAPI", "PostgreSQL + PostGIS", "asyncpg", "Celery", "Docker"],
     link: "github.com/ArthurViegas01/PowerAtlas",
@@ -198,7 +198,7 @@ export const PROJECTS = [
   },
   {
     id: "dely",
-    name: "Dely — Freight Calculator & Analytics",
+    name: "Dely · Freight Calculator & Analytics",
     category: "fullstack",
     stack: ["React 18", "TypeScript", "Vite", "Recharts", "Tailwind CSS"],
     link: "github.com/ArthurViegas01/TransporteCargas",
@@ -209,7 +209,7 @@ export const PROJECTS = [
   },
   {
     id: "general",
-    name: "General — Vue 3 Dice-Game Scoreboard",
+    name: "General · Vue 3 Dice-Game Scoreboard",
     category: "fullstack",
     stack: ["Vue 3", "Pinia", "Vue Router", "Vite"],
     link: "github.com/ArthurViegas01/general",

@@ -10,7 +10,38 @@ anteriores à `0.4.0` foram reconstruídas a partir do log do git.
 
 ---
 
-## [Não lançado] — correções de conversão
+## [Não lançado]: segunda rodada
+
+### Adicionado
+- **Identidade visual própria do PowerAtlas** (`src/assets/PowerAtlas.png` e
+  `PowerAtlas (1).png`). As duas thumbs que vieram no commit `a157708` eram
+  **cópias byte a byte das do Mirante** (mesmo blob, `901a3254…` e `1bee2780…`),
+  como o `// TODO` ao lado dos imports admitia: no ar, os dois cards apareceriam
+  idênticos. As novas seguem o padrão das demais (1920×1080, fundo sólido, cor de
+  marca própria, símbolo geométrico e wordmark em Poppins 600), com um âmbar que
+  não colide com o teal do Mirante nem com o roxo do Devscope. O símbolo é o
+  gesto central do produto: um arco de fluxo sobre a esfera do atlas. 118 KB e
+  114 KB, quantizadas em 128 cores, abaixo das thumbs existentes. O `TODO` saiu.
+
+### Alterado
+- **Travessões longos removidos do texto voltado ao leitor** (`resumeData.js`,
+  `index.html` e o CV). O `—` em profusão é um dos tells mais reconhecíveis de
+  texto gerado por LLM, e num currículo isso trabalha contra quem assina. Cada
+  ocorrência virou a pontuação que a frase pedia (dois-pontos, vírgula ou ponto),
+  não um hífen solto, que é o mesmo tell de outra forma. Nos títulos de projeto o
+  separador passou a ser o `·` que o portfólio já usa em todo lugar; nos períodos,
+  hífen simples. `resumeData.js` foi de 28 ocorrências a zero, `index.html` de 9 a
+  zero. A OG image foi regerada pelo mesmo motivo (e caiu de 161 KB para 54 KB).
+- **Formatação do CV.** As datas passaram a viver numa coluna fixa de 2200 dxa,
+  em tabelas de duas colunas sem borda, em vez de um tab stop. Um tab stop se
+  desloca conforme a largura do texto à esquerda, e era por isso que a linha da
+  AGES não alinhava com as outras; a tabela alinha igual em Word, Google Docs e
+  LibreOffice. Cada projeto ganhou `nome | stack` numa linha de cabeçalho própria,
+  e o documento voltou a caber em uma página.
+
+---
+
+## [Não lançado]: correções de conversão
 
 Bloco P0 do [diagnóstico de 2026-08-18](../Mirante/docs/carreira/diagnostico-2026-08-18.md).
 Nada aqui é feature: é fechar buracos por onde o site vinha perdendo candidatura.
