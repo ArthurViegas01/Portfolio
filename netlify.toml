@@ -12,9 +12,16 @@
 [[headers]]
   for = "/*"
   [headers.values]
-    Content-Security-Policy = "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://unpkg.com https://unicons.iconscout.com https://fonts.googleapis.com; font-src 'self' data: https://unpkg.com https://unicons.iconscout.com https://use.typekit.net https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://api.emailjs.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self'"
+    Content-Security-Policy = "default-src 'self'; script-src 'self' 'sha256-nL3oKKuc7A/jXK9kpaLo8s8nAT1fvN9SKaJ3Hi8Va/4='; style-src 'self' 'unsafe-inline' https://unpkg.com https://unicons.iconscout.com https://fonts.googleapis.com; font-src 'self' data: https://unpkg.com https://unicons.iconscout.com https://use.typekit.net https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://api.emailjs.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self'"
     X-Frame-Options = "DENY"
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
     Permissions-Policy = "camera=(), microphone=(), geolocation=()"
     Strict-Transport-Security = "max-age=31536000; includeSubDomains; preload"
+
+# Cache longo para o OG image (imutavel por conteudo; troque o nome do arquivo
+# ao redesenhar, para o LinkedIn/WhatsApp nao servirem a versao antiga do cache).
+[[headers]]
+  for = "/og-image.png"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"

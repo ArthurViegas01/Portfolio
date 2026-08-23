@@ -1,0 +1,17 @@
+# Normaliza fim de linha no repositorio: tudo que e texto entra no git como LF
+# e sai na convencao do sistema. Sem isto, um checkout no Windows marcava 53
+# arquivos como modificados so por CRLF e o `git status` deixava de significar
+# alguma coisa.
+* text=auto eol=lf
+
+# Binarios — nunca converter.
+*.png  binary
+*.jpg  binary
+*.jpeg binary
+*.gif  binary
+*.ico  binary
+*.pdf  binary
+*.docx binary
+*.woff  binary
+*.woff2 binary
+*.mp4  binary

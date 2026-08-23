@@ -2,7 +2,7 @@
 
 Personal portfolio website built with React and Vite, deployed on Netlify.
 
-**Live:** https://arthurviegas.netlify.app
+**Live:** https://arthurviegasdev.netlify.app
 
 ---
 

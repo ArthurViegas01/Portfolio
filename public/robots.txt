@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://arthurviegasdev.netlify.app/sitemap.xml

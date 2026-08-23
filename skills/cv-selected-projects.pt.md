@@ -70,7 +70,7 @@ Portfólio bilíngue (PT/EN) cujo destaque é uma **engine própria de diagramas
 escritos como **specs declarativas** (nós, arestas, lanes — sem coordenadas) que um motor de layout converte em SVG
 acessível com alinhamento automático de colunas e roteamento de arestas, totalmente internacionalizado. Inclui um
 formulário de contato com EmailJS (validado), um carrossel de depoimentos com Swiper e um toggle dark/light persistido.
-Deploy na Netlify (Node 22). [arthurviegas.netlify.app](https://arthurviegas.netlify.app)
+Deploy na Netlify (Node 22). [arthurviegasdev.netlify.app](https://arthurviegasdev.netlify.app)
 
 ---
 
