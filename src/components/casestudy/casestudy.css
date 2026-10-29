@@ -16,21 +16,6 @@
   margin-bottom: 1.75rem;
 }
 
-.csHero-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  background-color: var(--accent-color);
-  color: #fff;
-  font-size: var(--smaller-font-size);
-  font-weight: var(--font-semi-bold);
-  letter-spacing: 0.04em;
-  padding: 0.3rem 0.9rem;
-  border-radius: 2rem;
-  margin-bottom: 1rem;
-  text-transform: uppercase;
-}
-
 .csHero-title {
   font-size: var(--h2-font-size);
   color: var(--title-color);
@@ -697,6 +682,16 @@ body.dark-theme .csBottleneckMitigar {
   gap: 1rem;
   margin-top: 2rem;
   flex-wrap: wrap;
+}
+
+.csCta-note {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  max-width: 640px;
+  font-size: var(--small-font-size);
+  color: var(--text-color);
+  text-align: center;
 }
 
 .button--outline {

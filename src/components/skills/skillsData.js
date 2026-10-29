@@ -241,11 +241,9 @@ export const CATEGORIES = [
   },
 ];
 
-// Derived aggregates for the stats strip — computed once, never
-// hand-maintained, so the numbers can never drift from the data.
+// Skill count shown on the "all" filter: derived, never hand-maintained,
+// so it can never drift from the data.
 export const TOTAL_SKILLS = CATEGORIES.reduce(
   (sum, c) => sum + c.skills.length,
   0
 );
-export const TOTAL_CATEGORIES = CATEGORIES.length;
-export const TOTAL_PROJECTS = Object.keys(PROJECTS).length;

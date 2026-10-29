@@ -5,8 +5,6 @@ import {
   CATEGORIES,
   PROJECTS,
   TOTAL_SKILLS,
-  TOTAL_CATEGORIES,
-  TOTAL_PROJECTS,
 } from "./skillsData";
 
 // How many chips a card shows before the "show more" toggle. Kept low so the
@@ -70,33 +68,17 @@ const Skills = () => {
   const toggleProject = (key) =>
     setActiveProject((prev) => (prev === key ? null : key));
 
-  const stats = [
-    { value: `${TOTAL_SKILLS}+`, label: s.stats.skills },
-    { value: TOTAL_CATEGORIES, label: s.stats.categories },
-    { value: TOTAL_PROJECTS, label: s.stats.projects },
-    { value: "100%", label: s.stats.verified },
-  ];
-
   return (
     <section className="skills section" id="skills">
       <h2 className="sectionTitle">{s.title}</h2>
       <span className="sectionSubtitle">{s.subtitle}</span>
 
       <div className="skillsContainer container">
-        {/* Verified-in-code lead + at-a-glance stats */}
+        {/* Verified-in-code lead */}
         <p className="skillsLead">
           <i className="uil uil-shield-check" aria-hidden="true"></i>
           {s.lead}
         </p>
-
-        <div className="skillsStats">
-          {stats.map((stat) => (
-            <div key={stat.label} className="skillsStat">
-              <span className="skillsStat-value">{stat.value}</span>
-              <span className="skillsStat-label">{stat.label}</span>
-            </div>
-          ))}
-        </div>
 
         {/* Category filter — a toggle-button group, not a tab widget */}
         <div className="skillsFilters" role="group" aria-label={s.filterLabel}>

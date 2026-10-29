@@ -32,7 +32,7 @@ const mcp = {
       size: { w: 124, h: 90 } },
 
     { id: "protocol",   x: 270, y: 56,  variant: "accent",
-      labelKey: "nodes.protocol", sub: "JSON-RPC 2.0 / SSE", size: { w: 160, h: 48 } },
+      labelKey: "nodes.protocol", sub: "JSON-RPC · Streamable HTTP", size: { w: 160, h: 48 } },
     { id: "dispatcher", x: 270, y: 132, variant: "orange",
       labelKey: "nodes.dispatcher", sub: "Routes tool calls", size: { w: 160, h: 48 } },
     { id: "handlers",   x: 270, y: 212, variant: "green",
