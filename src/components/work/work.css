@@ -37,6 +37,9 @@
   gap: 1.25rem;
   max-width: 1400px;
   margin: 0 auto;
+  /* Gutter lateral. Esta grade sobrescreve a margem da .container (margin: 0 auto),
+     então leva o mesmo 1.5rem como padding para alinhar com as outras seções. */
+  padding-inline: var(--mb-1-5);
 }
 
 /*=============== CARD ===============*/

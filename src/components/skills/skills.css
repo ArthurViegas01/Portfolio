@@ -49,42 +49,6 @@
   flex-shrink: 0;
 }
 
-/* ── Stats strip ── */
-.skillsStats {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1rem;
-  width: 100%;
-  max-width: 720px;
-  margin-bottom: 2.5rem;
-}
-
-.skillsStat {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.15rem;
-  padding: 1rem 0.75rem;
-  background-color: var(--container-color);
-  border: 1px solid var(--diag-grid);
-  border-color: color-mix(in srgb, var(--title-color) 9%, transparent);
-  border-radius: 0.9rem;
-  text-align: center;
-}
-
-.skillsStat-value {
-  font-size: var(--h2-font-size);
-  font-weight: var(--font-semi-bold);
-  color: var(--accent-color);
-  line-height: 1.1;
-}
-
-.skillsStat-label {
-  font-size: var(--smaller-font-size);
-  color: var(--text-color);
-  letter-spacing: 0.01em;
-}
-
 /* ── Category filter ── */
 .skillsFilters {
   display: flex;
@@ -483,11 +447,6 @@
    BREAKPOINTS
    ============================================================ */
 @media screen and (max-width: 768px) {
-  .skillsStats {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 0.75rem;
-  }
-
   .skillsGrid {
     columns: 1;
   }
@@ -511,12 +470,6 @@
 
   .skillsCard {
     padding: 1.25rem 1.25rem 1.4rem;
-  }
-}
-
-@media screen and (max-width: 350px) {
-  .skillsStats {
-    grid-template-columns: 1fr;
   }
 }
 

@@ -12,7 +12,10 @@ import { useLanguage } from "../../context/LanguageContext";
  * 2021 column hold the degree (above the axis) and the first job (below it) on
  * the exact same X position: the "studied while working" story.
  *
- * Columns (chronological slots): 1=2016  2=2017  3=2021  4=2023  5=2024  6=trailing gutter.
+ * Columns (chronological slots): 1=2016  2=2017  3=2021  4=2023  5=2024  6=2025  7=2026  8=trailing gutter.
+ * Multi-year events set `span`: the card covers every year it lasted (the degree
+ * 2021 -> 2025, the current role 2024 -> 2026) while its stem stays on the start
+ * column. Year columns are equal width so the stem offset is plain arithmetic.
  */
 const Qualification = () => {
   const { t, lang } = useLanguage();
@@ -51,7 +54,7 @@ const Qualification = () => {
       org: "Cesi, Viamópolis",
     },
     {
-      id: "bsc", kind: "edu", col: 3, capStart: 3, capEnd: 7,
+      id: "bsc", kind: "edu", col: 3, span: 4, capStart: 3, capEnd: 7, // 2021 -> 2025
       icon: "uil uil-graduation-cap",
       date: "2021 – 2025",
       title: en ? "B.Sc. Software Engineering" : "Engenharia de Software",
@@ -80,7 +83,7 @@ const Qualification = () => {
         : "Features em Django REST + React, Docker e deploy na AWS.",
     },
     {
-      id: "dgf", kind: "exp", col: 5, capStart: 5, capEnd: 7, present: true,
+      id: "dgf", kind: "exp", col: 5, span: 3, capStart: 5, capEnd: 9, present: true, // 2024 -> 2026
       icon: "uil uil-bolt",
       date: `2024 – ${t.qualification.present}`,
       title: en ? "Full Stack Developer" : "Desenvolvedor Full Stack",
@@ -98,7 +101,9 @@ const Qualification = () => {
     { col: 2, year: "2017", side: "below" },
     { col: 3, year: "2021", side: "below", shared: true },
     { col: 4, year: "2023", side: "above" },
-    { col: 5, year: "2024", side: "above", present: true },
+    { col: 5, year: "2024", side: "above" },
+    { col: 6, year: "2025", side: "above" },
+    { col: 7, year: "2026", side: "above", present: true },
   ];
 
   const capsules = events
@@ -134,9 +139,6 @@ const Qualification = () => {
             <span className="qtl-axis__progress" />
           </span>
 
-          {/* ── Convergence beam behind the 2021 interchange (decorative) ── */}
-          <span className="qtl-beam" aria-hidden="true" style={{ gridColumn: 3 }} />
-
           {/* ── Duration capsules on the axis (decorative) ── */}
           {capsules.map((c) => (
             <span
@@ -165,8 +167,8 @@ const Qualification = () => {
             </span>
           ))}
 
-          {/* ── Live terminus: the journey continues past 2024 ── */}
-          <span className="qtl-now" aria-hidden="true" style={{ gridColumn: 6 }}>
+          {/* ── Live terminus: the journey continues past 2026 ── */}
+          <span className="qtl-now" aria-hidden="true" style={{ gridColumn: 8 }}>
             <i className="uil uil-angle-double-right qtl-now__arrow" />
             <span className="qtl-now__label">{t.qualification.today}</span>
           </span>
@@ -179,8 +181,13 @@ const Qualification = () => {
               role="listitem"
               data-kind={e.kind}
               data-present={e.present || undefined}
+              data-span={e.span || undefined}
               aria-label={[e.title, e.org, e.date, e.srNote].filter(Boolean).join(", ")}
-              style={{ gridColumn: e.col, "--d": `${i * 0.09 + 0.25}s` }}
+              style={{
+                gridColumn: e.span ? `${e.col} / span ${e.span}` : e.col,
+                "--span": e.span,
+                "--d": `${i * 0.09 + 0.25}s`,
+              }}
             >
               <header className="qtl-card__head">
                 <span className="qtl-card__chip">

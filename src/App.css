@@ -229,6 +229,16 @@ img {
 }
 
 /*=============== BREAKPOINTS ===============*/
+/* Side gutter for every .container. With max-width 1280px and auto margins, any
+   screen narrower than 1280px + 2 x 1.5rem left the sections touching the edges
+   (the old rule only started at 992px). Narrower breakpoints below override it. */
+@media screen and (max-width: 1328px) {
+  .container {
+    margin-left: var(--mb-1-5);
+    margin-right: var(--mb-1-5);
+  }
+}
+
 /* For large devices */
 @media screen and (max-width: 992px) {
   .container {

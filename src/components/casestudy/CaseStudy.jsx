@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import "./casestudy.css";
 import { useLanguage } from "../../context/LanguageContext";
-import { ArchDiagram } from "./diagrams";
+import { ArchDiagram, SPECS } from "./diagrams";
 
 const PROJECTS = [
   { id: "dataglass",    label: "Dataglass",      icon: "uil uil-chart-bar",      badge: "SaaS / AWS"  },
+  { id: "yellowglass",  label: "Yellowglass",    icon: "uil uil-search-alt",     badge: "Next.js / AWS" },
   { id: "encaixe",      label: "Encaixe",        icon: "uil uil-whatsapp",       badge: "AI / SaaS"   },
   { id: "mcp",          label: "Devscope",        icon: "uil uil-plug",           badge: "MCP Server"  },
   { id: "contextRag",   label: "Context (RAG)",  icon: "uil uil-robot",          badge: "AI / RAG"    },
@@ -12,16 +13,17 @@ const PROJECTS = [
 ];
 
 const TECH_BADGES = {
-  encaixe:     ["FastAPI", "LangGraph", "Claude Haiku", "PostgreSQL", "pgvector", "Next.js 14", "Supabase", "Celery", "Redis", "Docker", "Railway", "Netlify", "Evolution API", "GitHub Actions"],
-  contextRag:  ["FastAPI", "Celery", "Redis", "PostgreSQL", "pgvector", "LangChain", "Sentence Transformers", "Groq / Llama 3"],
+  encaixe:     ["FastAPI", "LangGraph", "Claude Haiku", "PostgreSQL", "pgvector", "Next.js 14", "Supabase", "Celery", "Redis", "Docker", "Vercel", "Hetzner", "Terraform", "Evolution API", "GitHub Actions"],
+  contextRag:  ["FastAPI", "Celery", "Redis", "PostgreSQL", "pgvector", "Full-text search", "LangChain", "fastembed (ONNX)", "Groq / Ollama / OpenAI", "JWT"],
   dataglass:   ["Django", "DRF", "Celery", "ElastiCache", "Docker", "ECR", "Elastic Beanstalk", "RDS", "S3", "CodePipeline", "CodeBuild", "Secrets Manager", "Tableau"],
-  mcp:         ["Python", "FastMCP", "GitHub API", "LangChain", "Redis", "Pydantic v2", "Groq / Llama 3", "Docker", "Railway"],
+  mcp:         ["Python", "FastMCP", "Streamable HTTP", "GitHub API", "LangChain", "Upstash Redis", "Pydantic v2", "Groq / gpt-oss-120b", "Docker", "Railway", "Netlify Functions", "Terraform"],
+  yellowglass: ["Next.js 16", "React 19", "TypeScript", "Tailwind 4", "openapi-typescript", "Django 5.2", "DRF", "PostgreSQL 17", "Athena", "Docker", "Cloudflare", "CodePipeline", "Elastic Beanstalk", "Terraform"],
   aiComponent: ["Next.js 15", "Groq API", "Llama 3", "Babel Standalone", "Monaco Editor", "Zustand", "Tailwind CSS", "Framer Motion"],
 };
 
 const GROUPED_TECH_BADGES = {
   aiComponent: {
-    backend:  ["Next.js 15", "Groq API", "Llama 3"],
+    backend:  ["Next.js 15", "Groq · Anthropic · OpenAI · Ollama"],
     frontend: ["Babel Standalone", "Monaco Editor", "Zustand", "Tailwind CSS", "Framer Motion"],
   },
 };
@@ -43,7 +45,9 @@ const CTAS = {
   encaixe:     { github: "https://github.com/ArthurViegas01/ZapAgent",               demo: "https://github.com/ArthurViegas01/ZapAgent#readme"             },
   contextRag:  { github: "https://github.com/ArthurViegas01/RAG",                    demo: "https://contextrag.netlify.app"          },
   dataglass:   { github: null,                                                         demo: "https://dataglass.co"                    },
-  mcp:         { github: "https://github.com/ArthurViegas01/Reporeaver",              demo: "https://github.com/ArthurViegas01/Reporeaver#readme"           },
+  mcp:         { github: "https://github.com/ArthurViegas01/Devscope",               demo: "https://devscopeai.netlify.app"                                },
+  // Repositórios privados (organização yellowglass-co) e app atrás do Cloudflare Access: sem link público.
+  yellowglass: { github: null,                                                         demo: null                                                            },
   aiComponent: { github: "https://github.com/ArthurViegas01/componentgenerator",     demo: "https://uicomponentgenerator.netlify.app"                       },
 };
 
@@ -54,19 +58,16 @@ const CaseStudy = () => {
   const [activeProject, setActiveProject] = useState("dataglass");
   const [activeTab,     setActiveTab]     = useState("architecture");
 
-  const content =
-    activeProject === "contextRag"  ? cs :
-    activeProject === "dataglass"   ? cs.dataglass :
-    activeProject === "mcp"         ? cs.mcp :
-    activeProject === "encaixe"     ? cs.encaixe :
-                                      cs.aiComponent;
+  // Context (RAG) foi o primeiro case study e vive na raiz de caseStudy; os demais têm chave própria.
+  const content = activeProject === "contextRag" ? cs : cs[activeProject];
+  const cta = CTAS[activeProject];
 
   const tabs = [
     { id: "architecture", icon: "uil uil-sitemap",      label: content.tabs.architecture },
     { id: "tradeoffs",    icon: "uil uil-balance-scale", label: content.tabs.tradeoffs    },
     { id: "scalability",  icon: "uil uil-chart-growth",  label: content.tabs.scalability  },
     { id: "security",     icon: "uil uil-shield-check",  label: content.tabs.security     },
-    ...(activeProject === "dataglass"
+    ...(content.cicd
       ? [{ id: "cicd", icon: "uil uil-code-branch", label: content.tabs.cicd }]
       : []),
   ];
@@ -100,9 +101,6 @@ const CaseStudy = () => {
 
       {/* Hero */}
       <div className="csHero container">
-        <div className="csHero-badge">
-          <i className={activeProjectMeta.icon}></i> System Design Case Study
-        </div>
         <h3 className="csHero-title">{activeProjectMeta.label}</h3>
         <p className="csHero-desc">{content.heroDesc}</p>
         {GROUPED_TECH_BADGES[activeProject] ? (
@@ -275,7 +273,7 @@ const CaseStudy = () => {
                 </div>
               ))}
             </div>
-            {(activeProject === "dataglass" || activeProject === "mcp" || activeProject === "encaixe") && (
+            {["dataglass", "yellowglass", "mcp", "encaixe"].includes(activeProject) && (
               <div className="csPerfBox">
                 <h5><i className="uil uil-tachometer-fast"></i> {content.security.perfTitle}</h5>
                 <div className="csPerfMetrics">
@@ -291,15 +289,17 @@ const CaseStudy = () => {
           </div>
         )}
 
-        {activeTab === "cicd" && activeProject === "dataglass" && (
+        {activeTab === "cicd" && content.cicd && (
           <div className="csPanelContent">
             <h4 className="csPanel-title">
               <i className="uil uil-code-branch"></i> {content.cicd.title}
             </h4>
             <p className="csPanel-intro">{content.cicd.intro}</p>
-            <div className="csDiagramWrapper">
-              <ArchDiagram id="dataglass:cicd" />
-            </div>
+            {SPECS[`${activeProject}:cicd`] && (
+              <div className="csDiagramWrapper">
+                <ArchDiagram id={`${activeProject}:cicd`} />
+              </div>
+            )}
             <div className="csFlowSteps">
               {content.cicd.stages.map((stage, i) => (
                 <div key={i} className="csFlowStep">
@@ -311,6 +311,7 @@ const CaseStudy = () => {
                 </div>
               ))}
             </div>
+            {content.cicd.metrics && (
             <div className="csPerfBox">
               <h5><i className="uil uil-tachometer-fast"></i> {content.cicd.metricsTitle}</h5>
               <div className="csPerfMetrics">
@@ -322,6 +323,7 @@ const CaseStudy = () => {
                 ))}
               </div>
             </div>
+            )}
           </div>
         )}
 
@@ -329,19 +331,26 @@ const CaseStudy = () => {
 
       {/* CTA */}
       <div className="csCta container">
-        {CTAS[activeProject].github && (
-          <a href={CTAS[activeProject].github} target="_blank" rel="noreferrer" className="button button--flex">
+        {cta.github && (
+          <a href={cta.github} target="_blank" rel="noreferrer" className="button button--flex">
             <i className="bx bxl-github"></i> {content.ctaGithub || cs.ctaGithub}
           </a>
         )}
-        <a
-          href={CTAS[activeProject].demo}
-          target="_blank"
-          rel="noreferrer"
-          className={`button button--flex ${CTAS[activeProject].github ? "button--outline" : ""}`}
-        >
-          <i className="uil uil-external-link-alt"></i> {content.ctaDemo || cs.ctaDemo}
-        </a>
+        {cta.demo && (
+          <a
+            href={cta.demo}
+            target="_blank"
+            rel="noreferrer"
+            className={`button button--flex ${cta.github ? "button--outline" : ""}`}
+          >
+            <i className="uil uil-external-link-alt"></i> {content.ctaDemo || cs.ctaDemo}
+          </a>
+        )}
+        {!cta.github && !cta.demo && content.privateNote && (
+          <p className="csCta-note">
+            <i className="uil uil-lock"></i> {content.privateNote}
+          </p>
+        )}
       </div>
     </section>
   );

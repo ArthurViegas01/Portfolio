@@ -5,6 +5,7 @@ import dataglassCICD from "./dataglassCICD";
 import encaixe       from "./encaixe";
 import mcp           from "./mcp";
 import aiComponent   from "./aiComponent";
+import yellowglass   from "./yellowglass";
 
 /**
  * All diagram specs, keyed by the id passed to <ArchDiagram id="..." />.
@@ -19,6 +20,7 @@ const SPECS = {
   encaixe,
   mcp,
   aiComponent,
+  yellowglass,
 
   "contextRag:scale": scale,
   "dataglass:cicd":   dataglassCICD,

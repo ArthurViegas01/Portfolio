@@ -10,6 +10,135 @@ anteriores à `0.4.0` foram reconstruídas a partir do log do git.
 
 ---
 
+## [Não lançado]: projetos conferidos contra os repositórios
+
+A seção de projetos não era atualizada desde 19/08. Cada texto abaixo foi
+conferido no código, nos READMEs e no git log dos repositórios em
+`Central/Projetos/` em 26/10/2026; o que não deu para comprovar saiu.
+
+### Adicionado
+- **Yellowglass** (card + case study completo, PT e EN). Grafo navegável do
+  mercado brasileiro de dispositivos médicos, projeto da Dataglass do qual o
+  Arthur é responsável de ponta a ponta (arquitetura, backend, banco, ETL,
+  frontend e infra).
+  Repositórios privados: card e case study **sem link**; o rodapé do case study
+  explica o motivo. Aba própria de **Pipeline de Dev**.
+  - Thumbs dark/light (`Yellowglass.png`, `Yellowglass (1).png`, 1920×1080) com
+    o wordmark da marca em Hanken Grotesk e o símbolo `2a-pin-lente`, que **ainda
+    é candidato** no guia de identidade: trocar quando a marca fechar.
+  - Screenshot real (`yellowglass-app.jpg`, 1600×900) da página de Registro
+    ANVISA rodando o frontend localmente, com os dados ilustrativos do repo.
+  - Diagrama `specs/yellowglass.js`: fluxo de requisição e carga mensal em duas
+    faixas com colunas alinhadas.
+
+### Alterado
+- **`CaseStudy.jsx`**: a aba CI/CD aparece para qualquer projeto com
+  `content.cicd` (antes era fixa na Dataglass), o diagrama dessa aba só renderiza
+  se existir spec `<id>:cicd`, e o CTA aceita projeto sem link público
+  (`privateNote`). A seleção do conteúdo virou `cs[activeProject]` em vez da
+  cadeia de ternários.
+- **Mirante**: deixou de ser "single-user". Multiusuário com aprovação do admin,
+  import via GitHub OAuth, agregador de vagas, OpenTelemetry e LLM multi-provider.
+- **PowerAtlas**: o card agora diz que os rankings de influência são
+  **fictícios por design** (só os indicadores são reais), além das novidades até
+  a v0.18.0.
+- **Encaixe**: endurecimento de segurança no card (RLS forçado, segredos
+  cifrados, webhook fail-closed, fences de prompt injection); badges de deploy
+  corrigidos de "Railway, Netlify" para **Vercel, Hetzner, Terraform**.
+- **Synth**: provider trocável por env (Groq com Llama 3.3 70B por padrão) e o
+  rate limit que já existia (Upstash, 3 janelas). O nó do diagrama dizia
+  "Groq SDK", que o projeto não usa: virou "LLM provider".
+- **Transportadora**: o texto em PT ganhou a frase da reescrita que só o EN tinha.
+- **Gutter lateral em todas as seções** (`App.css`): a `.container` tem
+  `max-width: 1280px` com margens automáticas e só ganhava margem lateral abaixo
+  de 992px. Entre 993px e ~1310px, navbar, Skills, System Design, About, Contato
+  e Footer encostavam nas bordas. Nova regra `max-width: 1328px` (1280 + 2 ×
+  1.5rem) dá 1.5rem de cada lado; as regras menores (350px) continuam valendo.
+  Medido: 24px dos dois lados em todas as `.container` de 390 a 1300px.
+- **Grade de projetos** (`work.css`): sobrescreve a margem da `.container`, então
+  recebeu o mesmo 1.5rem como `padding-inline`.
+- **Ordem dos projetos**: Yellowglass, Dataglass, PowerAtlas e Context (RAG)
+  abrem a grade; depois Mirante, Encaixe, Jogo General e Devscope (página 1) e
+  Synth, Transportadora e Donut 3D (página 2).
+- **PowerAtlas** publicado: o botão principal do card aponta para
+  `poweratlas.netlify.app`; o GitHub virou o botão secundário do modal.
+- **Thumbs da Dataglass** refeitas (`Dataglass.png`, `Dataglass (1).png`,
+  1920×1080, ~100 KB): fundo com grid e brilho como as demais, painel de vidro
+  com gráfico de área e wordmark em Poppins ("Data" 600 + "glass" 500 em azul).
+  O símbolo é original, não o logo da empresa.
+- **Skills**: removida a faixa de estatísticas (124+ skills, 12 categorias,
+  9 projetos, 100% comprovado em código), com o CSS, os textos PT/EN e as
+  constantes `TOTAL_CATEGORIES` e `TOTAL_PROJECTS`, que só ela usava.
+  `TOTAL_SKILLS` fica: é a contagem do filtro "Todas".
+- **System Design**: removido o badge "System Design Case Study" acima do
+  título de cada case study (o título da seção já diz isso).
+- **Linha do tempo** (`Qualification.jsx`): eventos de vários anos viraram
+  cards largos. Engenharia de Software ocupa de 2021 a 2025 e Desenvolvedor Full
+  Stack de 2024 a 2026; 2025 e 2026 entraram no eixo e o marcador "atual" passou
+  de 2024 para 2026. As colunas de ano têm largura igual, o que permite calcular
+  a haste do card largo sobre o ano de início
+  (`calc((100% - (span - 1) * gap) / span / 2)`), conferida com diferença de no
+  máximo 1px. Saiu a faixa iluminada atrás do período 2021-2025.
+  - Coluna mínima de 128px e gutter de 1,5rem: a grade cabe sem rolar a partir de
+    ~1135px. Antes, com 7 anos, ela rolava já em ~1240px e a barra de rolagem
+    aparecia como uma linha sob os cards. Abaixo de 1130px rola com fade de borda.
+  - Títulos dos cards com `hyphens: auto`: "Desenvolvedor" já transbordava o card
+    antes desta versão; agora quebra como "Desen-volvedor".
+- **`<html lang>`**: estava fixo em `en` com o conteúdo padrão em português, o
+  que faz leitores de tela lerem o PT com voz em inglês e impedia a hifenização.
+  `index.html` passou a `pt-BR` e o `LanguageContext` sincroniza `lang` com o
+  idioma escolhido.
+
+### Corrigido
+- **Context (RAG)** afirmava coisas que o código não faz: chunks de "512 tokens
+  / 50" (são 800/150 caracteres), "Sentence Transformers" (é fastembed/ONNX),
+  busca só por cosseno (é **híbrida com RRF k=60**), `ef_construction=128` (é
+  64), validação por magic bytes, retry com dead letter queue e isolamento por
+  namespace (nada disso existe). Trocados pelo que existe: JWT por usuário, cota
+  diária de upload, SlowAPI, time limits na task e fences contra prompt
+  injection. Novo trade-off explícito: o `to_tsvector` é calculado na consulta,
+  sem índice GIN.
+- **Devscope**: modelo era "Llama 3" (é `gpt-oss-120b`), transporte "stdio /
+  HTTP-SSE" (é Streamable HTTP), "PyGithub" (é httpx), cache de "15 min" (é
+  1 h) e "fastapi-limiter" (é middleware ASGI com script Lua). As métricas de
+  latência sem medição viraram números de configuração verificáveis. O botão de
+  GitHub do case study apontava para `Reporeaver` em vez de `Devscope`, e o de demo
+  para o README em vez do app no ar.
+
+### Pendente
+- Não foi possível abrir os links ao vivo (Netlify/Railway) a partir desta
+  sessão: conferir no navegador que contextrag, devscopeai,
+  uicomponentgenerator, jogogeneral, delytransporte, poweratlas e o Mirante
+  respondem.
+- Malha e Lumni (site) ficaram de fora por decisão; os textos já levantados
+  estão no histórico desta conversa se entrarem depois.
+
+---
+
+## [Não lançado]: nova foto de perfil
+
+### Alterado
+- **Foto de perfil das seções Home e About trocada** por um retrato novo
+  (Canon EOS R50, set/2026). Em vez de reaproveitar os nomes `perfil2.jpg` e
+  `perfil3.jpg`, que não diziam onde cada um era usado, os arquivos agora são
+  nomeados pelo destino:
+  - `src/assets/perfil-home.jpg`: recorte quadrado 900×900, para o blob animado
+    de 300×300 da Home (`background-size: cover`), com margem de 3× para telas
+    retina. 88 KB.
+  - `src/assets/perfil-about.jpg`: recorte retrato 4:5 em 1120×1400, a mesma
+    proporção da foto anterior, para não mudar a altura do bloco do About. 160 KB.
+- Ambos gerados a partir do original de 6000×4000 (5,3 MB) com JPEG progressivo,
+  qualidade 82, sRGB e **metadados EXIF removidos** (modelo da câmera, data e
+  demais dados de captura não vão para o site público).
+- `home.css` também perdeu a barra dupla em `url(../../assets//perfil2.jpg)`.
+
+### Pendente
+- `perfil.jpg`, `perfil2.jpg`, `perfil3.jpg` e `perfil3.png` ficaram sem nenhuma
+  referência no código. O Vite não os empacota, então não pesam no build, mas
+  podem ser removidos do repositório.
+
+---
+
 ## [Não lançado]: segunda rodada
 
 ### Adicionado
